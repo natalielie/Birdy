@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.lifecycle.MutableLiveData" />
+
+        <variable
+            name="fragment"
+            type="com.example.birdyapp.features.searching_by_name.view.SearchBirdByNameFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/birdyCrown"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="10dp"
+                    android:icon="@drawable/ic_bird_logo"
+                    android:src="@drawable/ic_owl"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:background="@color/transparent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/birdNameLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/standard_margin"
+                    android:layout_marginTop="@dimen/standard_margin"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/birdyCrown" >
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/birdName"
+                        android:layout_width="216dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/find_by_name_hint"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <ImageButton
+                    android:id="@+id/searchBtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="76dp"
+                    android:background="@drawable/background_button"
+                    android:src="@drawable/ic_search_icon_white"
+                    app:layout_constraintStart_toEndOf="@+id/birdNameLayout"
+                    app:layout_constraintTop_toTopOf="@+id/birdNameLayout" />
+
+                <ImageButton
+                    android:id="@+id/uploadBtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="76dp"
+                    android:background="@drawable/background_button"
+                    android:src="@drawable/ic_image_upload"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/birdNameLayout" />
+
+                <ImageButton
+                    android:id="@+id/recordBtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/background_button"
+                    android:src="@drawable/ic_bird_voice_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/birdNameLayout" />
+
+                <ImageView
+                    android:id="@+id/testImg"
+                    android:layout_width="256dp"
+                    android:layout_height="256dp"
+                    android:layout_marginTop="@dimen/standard_margin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/uploadBtn"
+                    android:visibility="gone"/>
+
+
+                <TextView
+                    android:id="@+id/resultsLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/standard_margin"
+                    android:layout_marginTop="@dimen/standard_margin"
+                    android:text="@string/results_label"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/testImg" />
+
+                <ImageView
+                    android:id="@+id/filterIcon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="@dimen/standard_margin"
+                    android:layout_marginTop="@dimen/standard_margin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/resultsLabel"
+                    tools:background="@drawable/ic_launcher_background" />
+
+                <ImageView
+                    android:id="@+id/sortIcon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="@dimen/standard_margin"
+                    app:layout_constraintStart_toEndOf="@id/filterIcon"
+                    app:layout_constraintTop_toTopOf="@id/filterIcon"
+                    tools:background="@drawable/ic_launcher_background" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/birdsRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_margin"
+                    app:layout_constraintTop_toBottomOf="@id/filterIcon"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/layout_bird_item" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            isVisible="@{fragment.isLoading()}"
+            tools:visibility="gone">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:text="@string/processing_progress"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

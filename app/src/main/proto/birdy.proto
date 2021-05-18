@@ -1,0 +1,165 @@
+syntax = "proto3";
+package birdy_grpc;
+
+service MainEndpoint {
+	rpc RegisterUser (RegistrationRequest) returns (RegistrationResponse) {}
+	rpc LoginUser(LoginRequest) returns (LoginResponse) {}
+	rpc FindBirdByName(FindBirdByNameRequest) returns (stream FindBirdByNameResponse) {}
+	rpc FindBirdCoordinatesByName(FindBirdCoordinatesByNameRequest) returns (stream FindBirdCoordinatesByNameResponse){}
+	rpc BindBoysByCity(FindBoysByCityRequest) returns (stream UserInfo) {}
+	rpc AddBirdWithData(AddBirdWithDataRequest) returns (AddBirdWithDataResponse) {}
+	rpc SendMessage(SendMessageRequest) returns (SendMessageResponse) {}
+	rpc SubscribeToNewMessages(Empty) returns (stream ChatMessage) {}
+	rpc UpdateUser(UserInfo) returns (Empty) {}
+	rpc GetTopBirds(GetTopBirdsRequest) returns (stream EncyclopedicBirdInfo) {}
+	rpc ResetPassword(ResetPasswordRequest) returns (Empty) {}
+	rpc VerifyToken(VerifyTokenRequest) returns (VerifyTokenResponse) {}
+}
+
+message VerifyTokenResponse{
+	bool result = 1;
+}
+
+message VerifyTokenRequest{
+	string token = 1;
+	string email = 2;
+}
+
+
+message ResetPasswordRequest {
+	string email = 1;
+}
+
+message GetTopBirdsRequest{
+	int32 count = 1;
+}
+
+message UserInfo{
+	string first_name = 1;
+	string middle_name = 2;
+	string last_name = 3;
+	string birth_date = 4;
+	string city = 5;
+	string email = 6;
+	string password = 7;
+}
+
+message FindBoysByCityRequest{
+	string city = 1;
+}
+
+
+message FindBirdCoordinatesByNameRequest {
+	string name = 1;
+}
+
+message FindBirdCoordinatesByNameResponse{
+	enum Result {
+		FOUND = 0;
+		NOT_FOUND = 1;
+		DB_ERROR = 2;
+	}
+	Result res = 1;
+	UserBirdInfo info = 2;
+}
+
+message RegistrationRequest {
+	string first_name = 1;
+	string middle_name = 2;
+	string last_name = 3;
+	string birth_date = 4;
+	string city = 5;
+	string email = 6;
+	string password = 7;
+}
+message RegistrationResponse {
+	enum Result{
+		OK = 0;
+		EMAIL_ALREADY_TAKEN = 1;
+		DB_ERROR = 2;
+	}
+	Result result = 1;
+}
+
+message LoginRequest {
+	string email = 1;
+	string password = 2;
+}
+message LoginResponse {
+	enum Result {
+		OK = 0;
+		WRONG_PASSWORD = 1;
+		LOGIN_NOT_FOUND = 2;
+		DB_ERROR = 3;
+	}
+	Result result = 1;
+	UserInfo info = 2;
+}
+
+message Empty {}
+
+message Timestamp {
+	// Represents seconds of UTC time since Unix epoch
+	// 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
+	// 9999-12-31T23:59:59Z inclusive.
+	int64 seconds = 1;
+
+	// Non-negative fractions of a second at nanosecond resolution. Negative
+	// second values with fractions must still have non-negative nanos values
+	// that count forward in time. Must be from 0 to 999,999,999
+	// inclusive.
+	int32 nanos = 2;
+}
+
+message UserBirdInfo {
+	message Point {
+		double longitude = 1;
+		double latitude = 2;
+	}
+	Point found_point = 1;
+	string found_time = 2;
+	string finder_email = 3;
+	bytes sound = 4;
+}
+
+message EncyclopedicBirdInfo {
+	bytes photo = 1;
+	string name = 2;
+	string description = 3;
+}
+
+message FindBirdByNameRequest {
+	string name = 1;
+}
+message AddBirdWithDataRequest {
+	UserBirdInfo info = 1;
+	bytes sound = 2;
+	bytes photo = 3;
+}
+
+message AddBirdWithDataResponse{
+	string bird_name = 1;
+}
+
+message FindBirdByNameResponse {
+	enum Result {
+		FOUND = 0;
+		NOT_FOUND = 1;
+		DB_ERROR = 2;
+	}
+	Result res = 1;
+	EncyclopedicBirdInfo enc_info = 2;
+}
+
+message SendMessageRequest {
+	string text_content = 1;
+}
+message SendMessageResponse {
+	Timestamp server_time = 1;
+}
+
+message ChatMessage {
+	string sender_email = 1;
+	Timestamp message_time = 2;
+	string text = 3;
+}

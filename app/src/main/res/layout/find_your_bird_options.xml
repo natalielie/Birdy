@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/findByNameButton"
+        android:layout_width="174dp"
+        android:layout_height="63dp"
+        android:text="Find by name"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="242dp" />
+
+    <Button
+        android:id="@+id/findByPhotoButton"
+        android:layout_width="174dp"
+        android:layout_height="63dp"
+        android:text="Find by photo"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="334dp" />
+
+    <Button
+        android:id="@+id/findByVoiceButton"
+        android:layout_width="174dp"
+        android:layout_height="63dp"
+        android:text="Find by voice"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="423dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

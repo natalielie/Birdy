@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <import type="androidx.lifecycle.MutableLiveData" />
+
+        <variable
+            name="fragment"
+            type="com.example.birdyapp.features.searching_by_name.view.SearchBirdByNameFragment" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <!-- toolbar -->
+
+                <ImageButton
+                    android:id="@+id/returnBtn"
+                    android:layout_width="35dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="@dimen/default_horizontal_margin"
+                    android:background="@drawable/transparent_background_button"
+                    android:src="@drawable/ic_return"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/birdsRecycler"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="@dimen/double_margin"
+                    tools:layout_editor_absoluteY="55dp" />
+
+
+                <TextView
+                    android:id="@+id/titleLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/standard_margin"
+                    android:text="@string/my_friends"
+                    android:textColor="@android:color/black"
+                    android:textSize="30dp"
+                    app:layout_constraintStart_toEndOf="@+id/returnBtn"
+                    app:layout_constraintTop_toTopOf="@+id/returnBtn"
+                    tools:layout_editor_absoluteY="55dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/usersRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:paddingTop="@dimen/standard_margin"
+                    app:layout_constraintTop_toBottomOf="@id/titleLabel"
+                    tools:itemCount="2"
+                    tools:layout_editor_absoluteX="4dp"
+                    tools:listitem="@layout/birdwatcher_item" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- navigation bar -->
+
+    </RelativeLayout>
+
+
+</layout>

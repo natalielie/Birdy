@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar_with_image"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    android:theme="@style/ToolbarTheme"
+    app:layout_collapseMode="pin"
+    app:navigationIcon="@null"
+    app:popupTheme="@style/ToolbarTheme">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_horizontal_margin"
+        android:layout_marginTop="@dimen/half_standard_margin"
+        android:layout_marginEnd="@dimen/default_horizontal_margin"
+        android:layout_marginBottom="@dimen/half_standard_margin"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/logo_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity=""
+            android:src="@drawable/ic_bird_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title_text_view"
+            style="@style/HeadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:textSize="@dimen/text_size_heading"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/logo_imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title" />
+
+        <ImageView
+            android:id="@+id/find_person_imageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_find_person"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/setting_imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55" />
+
+        <ImageView
+            android:id="@+id/setting_imageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_settings_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/log_out_imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/log_out_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_logout_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.appcompat.widget.Toolbar>

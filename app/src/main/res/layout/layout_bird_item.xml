@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bird"
+            type="com.example.birdyapp.features.searching_by_name.model.BirdModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_horizontal_margin"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_marginEnd="@dimen/default_horizontal_margin"
+        android:layout_marginBottom="@dimen/standard_margin"
+        android:elevation="4dp"
+        app:cardCornerRadius="7dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/birdPhoto"
+                android:layout_width="140dp"
+                android:layout_height="128dp"
+                android:layout_marginStart="@dimen/standard_margin"
+                android:layout_marginEnd="@dimen/standard_margin"
+                android:layout_marginTop="@dimen/standard_margin"
+                tools:background="@drawable/ic_launcher_background"/>
+
+
+            <TextView
+                android:id="@+id/birdName"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/half_standard_margin"
+                android:layout_marginBottom="@dimen/half_standard_margin"
+                android:text="@{bird.name}"
+                android:textColor="@android:color/black"
+                android:gravity="center|center_vertical"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                tools:text="ptenchik" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

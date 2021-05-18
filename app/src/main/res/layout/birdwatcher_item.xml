@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.example.birdyapp.features.sign_up.model.UserFields" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_horizontal_margin"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_marginEnd="@dimen/default_horizontal_margin"
+        android:layout_marginBottom="@dimen/standard_margin"
+        android:elevation="4dp"
+        app:cardCornerRadius="7dp">
+
+        <LinearLayout
+            android:layout_width="381dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+
+                <ImageView
+                    android:id="@+id/birdwatcherPhoto"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="@dimen/standard_margin"
+                    android:layout_marginEnd="@dimen/standard_margin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.027"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.02"
+                    android:src="@drawable/ic_profile_picture" />
+
+                <TextView
+                    android:id="@+id/birdwatcherName"
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@{user.firstName}"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="normal|bold"
+                    app:layout_constraintStart_toEndOf="@+id/birdwatcherPhoto"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="John Pigeon" />
+
+                <TextView
+                    android:id="@+id/birdwatcherAge"
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    android:textStyle="normal|bold"
+                    app:layout_constraintStart_toEndOf="@+id/birdwatcherPhoto"
+                    app:layout_constraintTop_toBottomOf="@+id/birdwatcherName"
+                    android:text="19 y.o"/>
+
+                <TextView
+                    android:id="@+id/birdwatcherLocation"
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@{user.city}"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    android:textStyle="normal|bold"
+                    app:layout_constraintStart_toEndOf="@+id/birdwatcherPhoto"
+                    app:layout_constraintTop_toBottomOf="@+id/birdwatcherAge"
+                    tools:text="New York, NY, USA" />
+
+                <ImageButton
+                    android:id="@+id/returnBtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/transparent_background_button"
+                    android:src="@drawable/ic_add_friends_black"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/birdwatcherName"
+                    app:layout_constraintTop_toBottomOf="@+id/birdwatcherName" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

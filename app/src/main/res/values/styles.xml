@@ -1,0 +1,45 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.MaterialComponents.Light">
+        <item name="android:textColorSecondary">@color/secondary_text</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="actionMenuTextColor">@color/primary_text</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="titleTextColor">@color/primary_text</item>
+        <item name="navigationIcon">@drawable/ic_back</item>
+        <item name="android:navigationIcon" tools:targetApi="lollipop">@drawable/ic_back</item>
+    </style>
+
+    <style name="HeadingText">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/text_size_heading</item>
+    </style>
+
+    <style name="AppbarTheme" parent="ThemeOverlay.MaterialComponents.ActionBar">
+        <item name="elevation">0dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="PrimaryText">
+        <item name="android:textSize">@dimen/text_size_lead</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="AlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:windowBackground">@drawable/rounded_dialog_background</item>
+        <item name="android:textColor">@null</item>
+        <item name="android:textSize">@null</item>
+        <item name="android:windowMinWidthMajor">65%</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+    </style>
+
+</resources>

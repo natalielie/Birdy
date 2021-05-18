@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FA3B39</color>
+    <color name="colorPrimaryDark">#262626</color>
+    <color name="colorAccent">#757474</color>
+    <color name="colorLight">#FFF9E9</color>
+
+
+
+
+
+    <color name="secondary_text">#8D8D8D</color>
+    <color name="primary_text">#FFFFFF</color>
+    <color name="settings_divider">#D8D8D8</color>
+    <color name="transparent">#00D8D8D8</color>
+    <color name="gray_stroke">#4D222222</color>
+    <color name="colorPrimaryDisabled">#7B8ED8</color>
+    <color name="gray">#B8B8B8</color>
+    <color name="gray_text_input">#0AFFFFFF</color>
+    <color name="gray_icon">#C4C4C4</color>
+
+
+
+    <color name="bulgarian_blue">#4771BC</color>
+    <color name="gray1">#f1f2f1</color>
+    <color name="gray15">#A4A4A4</color>
+    <color name="transparent_white_twenty">#33ffffff</color>
+    <color name="whitesmoke">#f5f5f5</color>
+</resources>
